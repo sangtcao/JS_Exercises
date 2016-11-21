@@ -1,4 +1,3 @@
-<script>
 //    Your company built an in-house calendar tool called HiCal. You want to add
 //    a feature to see the times in a day when everyone is available.
 //    To do this, you’ll need to know when any team is having a meeting. In
@@ -31,47 +30,46 @@
 //    any case, the spirit of the challenge is to merge meetings where
 //    start_time and end_time don't have an upper bound.
 
-    var data = [
-        {startTime: 0,  endTime: 1},
-        {startTime: 3,  endTime: 5},
-        {startTime: 4,  endTime: 8},
-        {startTime: 10, endTime: 12},
-        {startTime: 8,  endTime: 10}
-    ];
+var data = [
+    {startTime: 0,  endTime: 1},
+    {startTime: 3,  endTime: 5},
+    {startTime: 4,  endTime: 8},
+    {startTime: 10, endTime: 12},
+    {startTime: 8,  endTime: 10}
+];
 
-    condenseMeetingTimes(data);
+condenseMeetingTimes(data);
 
-    function condenseMeetingTimes(array) {
-        // sort meeting times by start time
-        var sortedArray = array.sort(sortByStartTime);
-        var condensedArray = [];
+function condenseMeetingTimes(array) {
+    // sort meeting times by start time
+    var sortedArray = array.sort(sortByStartTime);
+    var condensedArray = [];
 
-        // iterate through meetings
-        for (var i = 0; i < sortedArray.length-1; i++) {
-            var condensedEndTime = sortedArray[i]['endTime'];
-            var condensedStartTime = sortedArray[i+1]['startTime'];
+    // iterate through meetings
+    for (var i = 0; i < sortedArray.length-1; i++) {
+        var condensedEndTime = sortedArray[i]['endTime'];
+        var condensedStartTime = sortedArray[i+1]['startTime'];
 
-            // compare the end times to each next start time
-            while (condensedEndTime >= condensedStartTime) {
-                var condensedTime = sortedArray[i]['startTime']
+        // compare the end times to each next start time
+        while (condensedEndTime >= condensedStartTime) {
+            var condensedTime = sortedArray[i]['startTime']
 //                // overlap
 //                condensedArray.push({startTime: sortedArray[i]['startTime'],
 //                                     endTime: sortedArray[i+1]['endTime']});
 //                i++;
 
-                //
-            }
+            //
+        }
 //        else {
 //                condensedArray.push(sortedArray[i]);
 //            }
 
-        }
-        // consolidate condensed meeting times
-
-        console.log(condensedArray);
     }
+    // consolidate condensed meeting times
 
-    function sortByStartTime(a, b) {
-        return a['startTime'] > b['startTime'] ? 1 : -1;
-    }
-</script>
+    console.log(condensedArray);
+}
+
+function sortByStartTime(a, b) {
+    return a['startTime'] > b['startTime'] ? 1 : -1;
+}
