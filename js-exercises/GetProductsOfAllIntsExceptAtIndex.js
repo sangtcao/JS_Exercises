@@ -19,21 +19,21 @@ array = [1, 7, 3, 4];
 
 getProductsOfAllIntsExceptAtIndex(array);
 
-    function getProductsOfAllIntsExceptAtIndex(array) {
-        var productArray = [];
+function getProductsOfAllIntsExceptAtIndex(array) {
+    var productArray = [];
 
-        // iterate array
-        for (var i = 0; i < array.length; i++) {
-            // multiply contents
-            productArray.splice(i, 0, 1);
+    // iterate array
+    for (var i = 0; i < array.length; i++) {
+        // multiply contents
+        productArray.splice(i, 0, 1);
 
-            // multiplies
-            for (var j = 0; j < array.length; j++) {
-                if (j != i) {
-                    productArray[i] *= array[j];
-                }
+        // multiplies
+        for (var j = 0; j < array.length; j++) {
+            if (j != i) {
+                productArray[i] *= array[j];
             }
         }
-
-        console.log(productArray);
     }
+
+    console.log(productArray);
+}
